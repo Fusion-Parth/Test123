@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<!--
+* CoreUI - Free Bootstrap Admin Template
+* @version v2.1.14
+* @link https://coreui.io
+* Copyright (c) 2018 creativeLabs Lukasz Holeczek
+* Licensed under MIT (https://coreui.io/license)
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
+    <meta name="author" content="Lukasz Holeczek">
+    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+    <title>Fusion Report</title>
+    <!-- Icons-->
+    <link href="vendors/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
+    <link href="vendors/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendors/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <!-- Main styles for this application-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="vendors/pace-progress/css/pace.min.css" rel="stylesheet">
+  </head>
+  <body class="app sidebar-fixed aside-menu-fixed sidebar-lg-show bg-white" onload="javascript:load()">
+    <div class="app-body">
+      <div class="sidebar">
+        <nav class="sidebar-nav">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="dashboard.html">
+                <i class="nav-icon icon-speedometer"></i> Dashboard
+              </a>
+            </li>
+            <li class="nav-title">Business</li>
+            <li class="nav-item">
+              <a class="nav-link" href="document.html">
+                <i class="nav-icon icon-book-open"></i> Document</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="summary.html">
+                <i class="nav-icon icon-note"></i> Summary</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="scope.html">
+                <i class="nav-icon icon-star"></i> Scope</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="findings.html">
+                <i class="nav-icon cui-magnifying-glass"></i> Findings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="findings-category.html">
+                <i class="nav-icon icon-pie-chart"></i> -> Category</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="findings-severity.html">
+                <i class="nav-icon icon-chart"></i> -> Severity</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="findings-exploitability.html">
+                <i class="nav-icon icon-chart"></i> -> Exploitability</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="observations.html">
+                <i class="nav-icon cui-magnifying-glass"></i> Observations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="observations-category.html">
+                <i class="nav-icon icon-pie-chart"></i> -> Category</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="report.html">
+                <i class="nav-icon cui-print"></i> Report</a>
+            </li>
+            <li class="nav-title">Technical</li>
+            <li class="nav-item">
+              <a class="nav-link" href="notes.html">
+                <i class="nav-icon icon-star"></i> Notes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="functions.html">
+                <i class="nav-icon icon-star"></i> Functions</a>
+            </li>
+          </ul>
+        </nav>
+        <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+      </div>
+      <main class="main">
+        <div class="container-fluid">
+          <div class="animated fadeIn">
+            <div id="divDocument" class="row justify-content-center">
+              <div class="col-lg-12">
+                <div class="card card-fluid" style="font-family: Calibri; border-color: #2E74B5">
+                  <img class="card-img img-fluid" src="img/coverpage.jpg">
+                  <div class="card-img-overlay m-5 border-0">
+
+                    <div class="row justify-content-center">
+                      <div class="col-6">
+                        <div class="card border-0">
+                          <img class="img-fluid" id="imgPreparedByLogo">
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="card border-0">
+                          <img class="img-fluid" id="imgPreparedForLogo">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                      <div class="card mt-5 border-0 text-center text-uppercase" style="color: #2E74B5">
+                        <p id="documentName" style="font-size: 2.8vw; font-weight: bold"></p>
+                        <p id="documentVersion" style="font-size: 2.8vw; font-weight: bold"></p>
+                        <br>
+                        <p id="documentPreparedForName" style="font-size: 2.0vw"></p>
+                        <p id="documentDate" style="font-size: 2.0vw"></p>
+                        <br>
+                      </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                      <div class="col-9">
+                        <div class="card border-0">
+                          <img class="img-fluid" src="img/coverimage.jpg">
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="divDocumentSeparator" class="row mt-5" style="page-break-before: always">
+            </div>
+            <div id="divSummary" class="row justify-content-center">
+              <div class="col-lg-12">
+                <div class="card card-fluid" style="font-family: Calibri; border-color: #2E74B5">
+                  <img class="card-img img-fluid" src="img/otherpage.jpg">
+                  <div class="card-img-overlay m-5 border-0">
+
+                    <div class="row">
+                      <div class="col">
+                        <p id="summaryName" style="font-size: 3.0vw; color: #2E74B5"></p>
+                        <p id="summaryDescription1" style="font-size: 1.8vw; text-align: justify"></p>
+                      </div>
+                    </div>
+
+                    <div id="chartControl" class="row justify-content-center" style="visibility: hidden">
+                      <div class="col">
+                        <div class="card">
+                          <div class="card-body p-1">
+                            <div class="chart-wrapper" style="width: 55vw">
+                              <canvas id="chartCanvas"></canvas>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col">
+                        <p id="summaryDescription2" style="font-size: 1.8vw; text-align: justify"></p>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="divSummarySeparator" class="row mt-5" style="page-break-before: always">
+            </div>
+            <div id="divScope" class="row justify-content-center">
+              <div class="col-lg-12">
+                <div class="card card-fluid" style="font-family: Calibri; border-color: #2E74B5">
+                  <img class="card-img img-fluid" src="img/otherpage.jpg">
+                  <div class="card-img-overlay m-5 border-0">
+
+                    <div class="row">
+                      <div class="col">
+                        <p id="scopeName" style="font-size: 3.0vw; color: #2E74B5"></p>
+                        <p id="scopeDescription" style="font-size: 1.8vw; text-align: justify"></p>
+                        <p>
+                          <ol id="scopeItems" style="font-size: 1.8vw; text-align: justify"></ol>
+                        </p>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="divScopeSeparator" class="row mt-5" style="page-break-before: always">
+            </div>
+            <div class="row">
+              <div class="col-lg-9">
+                <div class="card">
+                  <div class="card-header" style="background-color: #FAA43A">
+                    <i class="fa fa-align-justify"></i>Findings</div>
+                  <div class="card-body">
+                    <table class="table table-responsive-sm table-sm" id="findingsTable">
+                      <thead>
+                        <tr>
+                          <th style="width: 1%; white-space: nowrap;">ID</th>
+                          <th>Name</th>
+                          <th style="width: 1%; white-space: nowrap;">Status</th>
+                          <th style="width: 1%; white-space: nowrap;">Severity</th>
+                          <th style="width: 1%; white-space: nowrap;">Exploitability</th>
+                        </tr>
+                      </thead>
+                      <tbody id="findingsTableBody">
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="card">
+                  <div class="card-header">
+                    <i class="fa fa-align-justify"></i>Severity</div>
+                  <div class="card-body">
+                    <div class="chart-wrapper">
+                      <canvas id="chartCanvas1"></canvas>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header">
+                    <i class="fa fa-align-justify"></i>Exploitability</div>
+                  <div class="card-body">
+                    <div class="chart-wrapper">
+                      <canvas id="chartCanvas2"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-5" style="page-break-before: always">
+            </div>
+            <div class="row">
+              <div class="col-lg-9">
+                <div class="card">
+                  <div class="card-header" style="background-color: #7D9BC4">
+                    <i class="fa fa-align-justify"></i>Observations</div>
+                  <div class="card-body">
+                    <table class="table table-responsive-sm table-sm" id="observationsTable">
+                      <thead>
+                        <tr>
+                          <th style="width: 1%; white-space: nowrap;">ID</th>
+                          <th>Name</th>
+                        </tr>
+                      </thead>
+                      <tbody id="observationsTableBody">
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="card" style="visibility: hidden">
+                  <div class="card-header">
+                    <i class="fa fa-align-justify"></i>Summary</div>
+                  <div class="card-body">
+                    <div class="chart-wrapper">
+                      <canvas id="chartCanvas3"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" id="findingTemplate">
+              <div class="col-lg-12">
+                <div class="card">
+                  <div class="card-header" name="findingNumber" style="background-color: #FAA43A">
+                    <i class="fa fa-align-justify"></i>Finding</div>
+                  <div class="card-body">
+                    <table class="table table-responsive-sm table-sm" name="findingTable">
+                      <tbody>
+                        <tr>
+                          <td style="width: 1%; white-space: nowrap; font-weight: bold">Name</td>
+                          <td name="findingName" style="font-weight: bold"></td>
+                        </tr>
+                        <tr style="display: none">
+                          <td style="width: 1%; white-space: nowrap; font-weight: bold">Status</td>
+                          <td name="findingStatus"></td>
+                        </tr>
+                        <tr>
+                          <td style="width: 1%; white-space: nowrap; font-weight: bold">Severity</td>
+                          <td name="findingSeverity"></td>
+                        </tr>
+                        <tr>
+                          <td style="width: 1%; white-space: nowrap; font-weight: bold">Exploitability</td>
+                          <td name="findingExploitability"></td>
+                        </tr>
+                        <tr>
+                          <td style="width: 1%; white-space: nowrap; font-weight: bold">Function / Target</td>
+                          <td name="findingTarget"></td>
+                        </tr>
+                        <tr>
+                          <td style="width: 1%; white-space: nowrap; font-weight: bold">Description</td>
+                          <td name="findingDescription"></td>
+                        </tr>
+                        <tr>
+                          <td style="width: 1%; white-space: nowrap; font-weight: bold">Risk / Impact</td>
+                          <td name="findingRisk"></td>
+                        </tr>
+                        <tr>
+                          <td style="width: 1%; white-space: nowrap; font-weight: bold">Evidence</td>
+                          <td name="findingEvidence"></td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">
+                            <table class="table table-responsive-sm table-sm table-borderless" style="font-weight: bold">
+                              <tbody name="findingTableBody">
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width: 1%; white-space: nowrap; font-weight: bold">Recommendation</td>
+                          <td name="findingRecommendation"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" id="observationTemplate">
+              <div class="col-lg-12">
+                <div class="card">
+                  <div class="card-header" name="observationNumber" style="background-color: #7D9BC4">
+                    <i class="fa fa-align-justify"></i>Observation</div>
+                  <div class="card-body">
+                    <table class="table table-responsive-sm table-sm" name="observationTable">
+                      <tbody>
+                        <tr>
+                          <td style="width: 1%; white-space: nowrap; font-weight: bold">Name</td>
+                          <td name="observationName" style="font-weight: bold"></td>
+                        </tr>
+                        <tr>
+                          <td style="width: 1%; white-space: nowrap; font-weight: bold">Description</td>
+                          <td name="observationDescription"></td>
+                        </tr>
+                        <tr>
+                          <td colspan="2">
+                            <table class="table table-responsive-sm table-sm table-borderless" style="font-weight: bold">
+                              <tbody name="observationTableBody">
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- CoreUI and necessary plugins-->
+    <script src="vendors/jquery/js/jquery.min.js"></script>
+    <script src="vendors/popper.js/js/popper.min.js"></script>
+    <script src="vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendors/pace-progress/js/pace.min.js"></script>
+    <script src="vendors/perfect-scrollbar/js/perfect-scrollbar.min.js"></script>
+    <script src="vendors/@coreui/coreui/js/coreui.min.js"></script>
+    <!-- Control scripts-->
+    <script src="vendors/chart.js/js/Chart.min.js"></script>
+    <script src="vendors/@coreui/coreui-plugin-chartjs-custom-tooltips/js/custom-tooltips.min.js"></script>
+    <script src="js/attributes.js"></script>
+    <script src="js/purify.min.js"></script>
+    <script>
+    var chart = new Chart($('#chartCanvas'), {
+        type: 'pie',
+        data: {
+            labels: [],
+            types: [],
+            datasets: [{
+                data: [],
+                backgroundColor: ['#F25F5A', '#00A2E8', '#22B14C', '#B65DB7', '#FF7F27', '#B97A57', '#DC6A94', '#909090', '#F58D89', '#89D3E7', '#B5E61D', '#BCB1E2', '#FFC90E', '#D6B19C', '#F5A3C8', '#B0B0B0', '#F47671', '#5DA5DA', '#60BD68', '#B276B2', '#FAA43A', '#B9936C', '#F17CB0', '#A0A0A0'],
+                hoverBackgroundColor: ['#F25F5A', '#00A2E8', '#22B14C', '#B65DB7', '#FF7F27', '#B97A57', '#DC6A94', '#909090', '#F58D89', '#89D3E7', '#B5E61D', '#BCB1E2', '#FFC90E', '#D6B19C', '#F5A3C8', '#B0B0B0', '#F47671', '#5DA5DA', '#60BD68', '#B276B2', '#FAA43A', '#B9936C', '#F17CB0', '#A0A0A0']
+            }]
+        },
+        options: {
+            legend: {
+                labels: {
+                    boxWidth: 12,
+                    padding: 8
+                }
+            },
+            maintainAspectRatio: false,
+            responsive: true
+        }
+    });
+    var chart1 = new Chart($('#chartCanvas1'), {
+        type: 'bar',
+        data: {
+            labels: ['Critical', 'High', 'Medium', 'Low', 'Info'],
+            types: ['Critical', 'High', 'Medium', 'Low', 'Info'],
+            datasets: [{
+                data: [0, 0, 0, 0, 0],
+                backgroundColor: ['#C12525', '#F15854', '#FAA43A', '#60BD68', '#6C9DC6'],
+                hoverBackgroundColor: ['#C12525', '#F15854', '#FAA43A', '#60BD68', '#6C9DC6']
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: 1
+                    }
+                }]
+            },
+            responsive: true
+        }
+    });
+    var chart2 = new Chart($('#chartCanvas2'), {
+        type: 'bar',
+        data: {
+            labels: ['Easy', 'Medium', 'Difficult', 'Info'],
+            types: ['Easy', 'Medium', 'Difficult', 'Info'],
+            datasets: [{
+                data: [0, 0, 0, 0],
+                backgroundColor: ['#F69D9A', '#FBC684', '#A8DAAC', '#91B6D4'],
+                hoverBackgroundColor: ['#F69D9A', '#FBC684', '#A8DAAC', '#91B6D4']
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: 1
+                    }
+                }]
+            },
+            responsive: true
+        }
+    });
+    var chart3 = new Chart($('#chartCanvas3'), {
+        type: 'bar',
+        data: {
+            labels: ['Total'],
+            types: ['Total'],
+            datasets: [{
+                data: [0],
+                backgroundColor: ['#C0C0C0'],
+                hoverBackgroundColor: ['#C0C0C0']
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        stepSize: 1
+                    }
+                }]
+            },
+            responsive: true
+        }
+    });
+    </script>
+    <script src="/dwr/engine.js"></script>
+    <script src="/dwr/util.js"></script>
+    <script src="/dwr/interface/ProjectService.js"></script>
+    <script>
+    function load()
+    {
+        doc();
+        summary();
+        scope();
+        findings();
+        observations();
+    }
+
+    function doc()
+    {
+        ProjectService.getNoteByName("Document", function(data) {
+            docProcess(data);
+        });
+    }
+
+    function docProcess(note)
+    {
+        if (note != null)
+        {
+            var description = note.description;
+
+            var attributes = getAttributes(description);
+
+            docProcessText("Name", attributes, "");
+            docProcessText("Version", attributes, "Version");
+            docProcessText("PreparedByName", attributes, "Prepared By:");
+            docProcessText("PreparedForName", attributes, "Prepared For:");
+            docProcessText("Date", attributes, "Date:");
+
+            docNodes(note.id, attributes);
+        }
+        else
+        {
+            divDocument.style.display = "none";
+            divDocumentSeparator.style.display = "none";
+        }
+    }
+
+    function docProcessText(name, attributes, title)
+    {
+        var value = getAttribute(name, attributes);
+
+        if (value != "")
+        {
+            var text = title;
+
+            if (text != "")
+                text += " ";
+
+            text += value;
+
+            var element = document.getElementById("document" + name);
+
+            if (element != null)
+            {
+                element.innerText = text;
+            }
+        }
+    }
+
+    function docNodes(id, attributes)
+    {
+        ProjectService.getNotesNode(id, function(data) {
+            docNodesProcess(data, attributes);
+        });
+    }
+
+    function docNodesProcess(notesNode, attributes)
+    {
+        for (var i=0; i<notesNode.length; i++)
+        {
+            var noteNode = notesNode[i];
+
+            docProcessImage("PreparedByLogo", attributes, noteNode);
+            docProcessImage("PreparedForLogo", attributes, noteNode);
+        }
+    }
+
+    function docProcessImage(name, attributes, noteNode)
+    {
+        var value = getAttribute(name, attributes);
+
+        var match = "@" + noteNode.name;
+
+        if (value == match)
+        {
+            var element = document.getElementById("img" + name);
+
+            if (element != null)
+            {
+                docData(noteNode.id, name);
+            }
+        }
+    }
+
+    function docData(id, name)
+    {
+        ProjectService.getNotesData(id, false, true, function(data) {
+            docDataProcess(data, name);
+        });
+    }
+
+    function docDataProcess(notesData, name)
+    {
+        if (notesData.length != 0)
+        {
+            var noteData = notesData[0];
+
+            if (noteData.image != null)
+            {
+                var image = document.getElementById("img" + name);
+                image.src = noteData.image;
+            }
+        }
+    }
+
+    function summary()
+    {
+        ProjectService.getNoteByName("ExecutiveSummary", function(data) {
+            summaryProcess(data);
+        });
+    }
+
+    function summaryProcess(note)
+    {
+        if (note != null)
+        {
+            var description = note.description;
+
+            var attributes = getAttributes(description);
+
+            var name = getAttribute("Name", attributes);
+
+            summaryProcessText("Name", name);
+
+            var description = getAttribute("Description", attributes);
+
+            var tag = "<chart/>";
+
+            var description1 = description;
+            var chartProcess = false;
+            var description2 = "";
+
+            var index = description.indexOf(tag);
+
+            if (index != -1)
+            {
+                description1 = description.substring(0, index);
+                chartProcess = true;
+                description2 = description.substring(index + tag.length, description.length);
+            }
+
+            summaryProcessHtml("Description1", description1);
+            summaryProcessChart(chartProcess);
+            summaryProcessHtml("Description2", description2);
+        }
+        else
+        {
+            divSummary.style.display = "none";
+            divSummarySeparator.style.display = "none";
+        }
+    }
+
+    function summaryProcessText(name, value)
+    {
+        if (value != "")
+        {
+            var text = value;
+
+            var element = document.getElementById("summary" + name);
+
+            if (element != null)
+            {
+                element.innerText = text;
+            }
+        }
+    }
+
+    function summaryProcessHtml(name, value)
+    {
+        if (value != "")
+        {
+            var html = DOMPurify.sanitize(value);
+
+            var element = document.getElementById("summary" + name);
+
+            if (element != null)
+            {
+                element.innerHTML = html;
+            }
+        }
+    }
+
+    function summaryProcessChart(chartProcess)
+    {
+        if (chartProcess)
+        {
+            categories();
+
+            chartControl.style.visibility = "visible";
+        }
+    }
+
+    function categories()
+    {
+        ProjectService.getNotesByName("Findings", "#", function(data) {
+            categoriesProcess(data);
+        });
+    }
+
+    function categoriesProcess(notes)
+    {
+        while (chart.data.labels.length != 0)
+        {
+           chart.data.labels.pop();
+        }
+
+        while (chart.data.types.length != 0)
+        {
+           chart.data.types.pop();
+        }
+
+        while (chart.data.datasets[0].data.length != 0)
+        {
+           chart.data.datasets[0].data.pop();
+        }
+
+        var categoriesAttributes = {};
+
+        for (var i=0; i<notes.length; i++)
+        {
+            var note = notes[i];
+
+            var name = note.name;
+
+            var description = note.description;
+
+            if (name.startsWith("Findings" + "#"))
+            {
+                var start = ("Findings" + "#").length;
+
+                var index = name.indexOf("-");
+
+                if (index == -1)
+                {
+                    var type = name.substring(start, name.length);
+
+                    var categoryAttributes = getAttributes(description);
+
+                    categoriesAttributes[type] = categoryAttributes;
+
+                    var nameAttribute = getAttribute("Name", categoryAttributes);
+
+                    var label = nameAttribute;
+
+                    if (label == "")
+                    {
+                        label = "Category" + " " + type;
+                    }
+
+                    chart.data.labels.push(label);
+
+                    chart.data.types.push(type);
+
+                    chart.data.datasets[0].data.push(0);
+                }
+                else
+                {
+                    var type = name.substring(start, index);
+
+                    var categoryAttributes = categoriesAttributes[type];
+
+                    var instanceAttributes = getAttributes(description);
+
+                    var status = getVirtualAttribute("Status", instanceAttributes, categoryAttributes);
+
+                    if (isStatusActive(status))
+                    {
+                        var idx = -1;
+
+                        for (var j=0; j<chart.data.types.length; j++)
+                        {
+                            if (type == chart.data.types[j])
+                            {
+                                idx = j;
+
+                                break;
+                            }
+                        }
+
+                        if (idx != -1)
+                        {
+                            chart.data.datasets[0].data[idx] = chart.data.datasets[0].data[idx] + 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (var idx=0; idx<chart.data.types.length; idx++)
+        {
+            if (chart.data.datasets[0].data[idx] == 0)
+            {
+                chart.data.labels.splice(idx, 1);
+
+                chart.data.types.splice(idx, 1);
+
+                chart.data.datasets[0].data.splice(idx, 1);
+
+                idx--;
+            }
+        }
+
+        chart.update();
+    }
+
+    function scope()
+    {
+        ProjectService.getNoteByName("Scope", function(data) {
+            scopeProcess(data);
+        });
+    }
+
+    function scopeProcess(note)
+    {
+        if (note != null)
+        {
+            var description = note.description;
+
+            var attributes = getAttributes(description);
+
+            var name = getAttribute("Name", attributes);
+
+            scopeProcessText("Name", name);
+
+            var description = getAttribute("Description", attributes);
+
+            scopeProcessHtml("Description", description);
+
+            scopeNodes(note.id);
+        }
+        else
+        {
+            divScope.style.display = "none";
+            divScopeSeparator.style.display = "none";
+        }
+    }
+
+    function scopeProcessText(name, value)
+    {
+        if (value != "")
+        {
+            var text = value;
+
+            var element = document.getElementById("scope" + name);
+
+            if (element != null)
+            {
+                element.innerText = text;
+            }
+        }
+    }
+
+    function scopeProcessHtml(name, value)
+    {
+        if (value != "")
+        {
+            var html = DOMPurify.sanitize(value);
+
+            var element = document.getElementById("scope" + name);
+
+            if (element != null)
+            {
+                element.innerHTML = html;
+            }
+        }
+    }
+
+    function scopeNodes(id)
+    {
+        ProjectService.getNotesNode(id, function(data) {
+            scopeNodesProcess(data);
+        });
+    }
+
+    function scopeNodesProcess(notesNode)
+    {
+        var items = document.createElement("ol");
+        items.id = "scopeItems";
+        items.style.cssText = scopeItems.style.cssText;
+
+        for (var i=0; i<notesNode.length; i++)
+        {
+            var noteNode = notesNode[i];
+
+            var text = noteNode.name;
+
+            if (noteNode.description != "")
+            {
+                if (text != "")
+                    text += " - ";
+
+                text += noteNode.description;
+            }
+
+            if (text != "")
+            {
+                var item = document.createElement("li");
+                item.style.marginBottom = "2%";
+                item.appendChild(document.createTextNode(text));
+                items.appendChild(item);
+
+                scopeData(noteNode.id, item);
+            }
+        }
+
+        scopeItems.parentNode.replaceChild(items, scopeItems);
+    }
+
+    function scopeData(id, item)
+    {
+        ProjectService.getNotesData(id, false, true, function(data) {
+            scopeDataProcess(data, item);
+        });
+    }
+
+    function scopeDataProcess(notesData, item)
+    {
+        var elements = document.createElement("ul");
+        elements.style.marginTop = "2%";
+        elements.style.marginBottom = "2%";
+
+        for (var i=0; i<notesData.length; i++)
+        {
+            var noteData = notesData[i];
+
+            var text = noteData.name;
+
+            if (noteData.description != "")
+            {
+                if (text != "")
+                    text += " - ";
+
+                text += noteData.description;
+            }
+
+            if (text != "")
+            {
+                var element = document.createElement("li");
+                element.appendChild(document.createTextNode(text));
+                elements.appendChild(element);
+            }
+
+            if (noteData.image != null)
+            {
+                var image = document.createElement("img");
+                image.setAttribute("class", "img-fluid");
+                image.setAttribute("src", noteData.image);
+                image.style.maxWidth = "35%";
+                elements.appendChild(image);
+            }
+        }
+
+        item.appendChild(elements);
+    }
+
+    function findings()
+    {
+        ProjectService.getNotesByName("Findings", "#", function(data) {
+            findingsProcess(data);
+        });
+    }
+
+    var categoryMapFindings = null;
+    var instanceMapFindings = null;
+
+    function findingsProcess(notes)
+    {
+        var tableBody = document.createElement("tbody");
+        tableBody.id = "findingsTableBody";
+
+        var size = chart1.data.datasets[0].data.length;
+
+        for (var i=0; i<size; i++)
+        {
+           chart1.data.datasets[0].data[i] = 0;
+        }
+
+        var size = chart2.data.datasets[0].data.length;
+
+        for (var i=0; i<size; i++)
+        {
+           chart2.data.datasets[0].data[i] = 0;
+        }
+
+        categoryMapFindings = {};
+        instanceMapFindings = {};
+
+        var sequence = 0;
+
+        var categoriesAttributes = {};
+
+        var findingReference = findingTemplate;
+
+        for (var i=0; i<notes.length; i++)
+        {
+            var note = notes[i];
+
+            var id = note.id;
+
+            var name = note.name;
+
+            var description = note.description;
+
+            if (name.startsWith("Findings" + "#"))
+            {
+                var start = ("Findings" + "#").length;
+
+                var index = name.indexOf("-");
+
+                if (index == -1)
+                {
+                    var type = name.substring(start, name.length);
+
+                    var categoryAttributes = getAttributes(description);
+
+                    categoriesAttributes[type] = categoryAttributes;
+                }
+                else
+                {
+                    var type = name.substring(start, index);
+
+                    var categoryAttributes = categoriesAttributes[type];
+
+                    var instanceAttributes = getAttributes(description);
+
+                    var status = getVirtualAttribute("Status", instanceAttributes, categoryAttributes);
+
+                    if (isStatusActive(status))
+                    {
+                        var severity = getVirtualAttribute("Severity", instanceAttributes, categoryAttributes);
+
+                        var idx = -1;
+
+                        for (var j=0; j<chart1.data.types.length-1; j++)
+                        {
+                            if (severity == chart1.data.types[j])
+                            {
+                                idx = j;
+
+                                break;
+                            }
+                        }
+
+                        if (idx == -1)
+                        {
+                            idx = chart1.data.types.length-1;
+                        }
+
+                        chart1.data.datasets[0].data[idx] = chart1.data.datasets[0].data[idx] + 1;
+
+                        var exploitability = getVirtualAttribute("Exploitability", instanceAttributes, categoryAttributes);
+
+                        var idx = -1;
+
+                        for (var j=0; j<chart2.data.types.length-1; j++)
+                        {
+                            if (exploitability == chart2.data.types[j])
+                            {
+                                idx = j;
+
+                                break;
+                            }
+                        }
+
+                        if (idx == -1)
+                        {
+                            idx = chart2.data.types.length-1;
+                        }
+
+                        chart2.data.datasets[0].data[idx] = chart2.data.datasets[0].data[idx] + 1;
+                    }
+
+                    categoryMapFindings[id] = categoryAttributes;
+                    instanceMapFindings[id] = instanceAttributes;
+
+                    sequence = sequence + 1;
+
+                    var start = ("Findings" + "#" + type + "-").length;
+
+                    var instance = name.substring(start, name.length);
+
+                    var row = tableBody.appendChild(document.createElement("tr"));
+
+                    var cell = row.appendChild(document.createElement("td"));
+                    var anchor = document.createElement("a");
+                    anchor.setAttribute("href", "#" + "finding" + sequence);
+                    anchor.appendChild(document.createTextNode(sequence + "."));
+                    cell.appendChild(anchor);
+
+                    var nameAttribute = getVirtualAttribute("Name", instanceAttributes, categoryAttributes);
+
+                    var instanceAttribute = getAttribute("Instance", instanceAttributes);
+
+                    if (instanceAttribute != "")
+                    {
+                        if (nameAttribute != "")
+                            nameAttribute += " - ";
+
+                        nameAttribute += instanceAttribute;
+                    }
+
+                    if (nameAttribute == "")
+                    {
+                        nameAttribute = "Instance" + " " + type + "-" + instance;
+                    }
+
+                    var cell = row.appendChild(document.createElement("td"));
+                    cell.appendChild(document.createTextNode(nameAttribute));
+
+                    var statusAttribute = getVirtualAttribute("Status", instanceAttributes, categoryAttributes);
+
+                    var cell = row.appendChild(document.createElement("td")).appendChild(document.createElement("nobr"));
+                    cell.appendChild(document.createTextNode(statusAttribute));
+
+                    setStatusColor(cell, statusAttribute);
+
+                    var severityAttribute = getVirtualAttribute("Severity", instanceAttributes, categoryAttributes);
+
+                    var cell = row.appendChild(document.createElement("td"));
+                    cell.appendChild(document.createTextNode(severityAttribute));
+
+                    setSeverityColor(cell, severityAttribute);
+
+                    var exploitabilityAttribute = getVirtualAttribute("Exploitability", instanceAttributes, categoryAttributes);
+
+                    var cell = row.appendChild(document.createElement("td"));
+                    cell.appendChild(document.createTextNode(exploitabilityAttribute));
+
+                    setExploitabilityColor(cell, exploitabilityAttribute);
+
+                    var findingInstance = findingTemplate.cloneNode(true);
+
+                    findingInstance.id = "finding" + sequence;
+
+                    findingInstance.style.pageBreakBefore = "always";
+
+                    findingReference.parentNode.insertBefore(findingInstance, findingReference.nextSibling);
+
+                    findingReference = findingInstance;
+
+                    finding(sequence, id);
+                }
+            }
+        }
+
+        chart1.update();
+
+        chart2.update();
+
+        findingsTableBody.parentNode.replaceChild(tableBody, findingsTableBody);
+
+        findingTemplate.style.display = "none";
+    }
+
+    function finding(sequence, id)
+    {
+        var categoryAttributes = categoryMapFindings[id];
+        var instanceAttributes = instanceMapFindings[id];
+
+        ProjectService.getNotesNode(id, function(data) {
+            findingProcess(data, categoryAttributes, instanceAttributes, sequence);
+        });
+    }
+
+    function findingProcess(notesNode, categoryAttributes, instanceAttributes, sequence)
+    {
+        var findingNumber = document.getElementsByName("findingNumber")[sequence];
+
+        var findingName = document.getElementsByName("findingName")[sequence];
+
+        var findingStatus = document.getElementsByName("findingStatus")[sequence];
+
+        var findingSeverity = document.getElementsByName("findingSeverity")[sequence];
+
+        var findingExploitability = document.getElementsByName("findingExploitability")[sequence];
+
+        var findingTarget = document.getElementsByName("findingTarget")[sequence];
+
+        var findingDescription = document.getElementsByName("findingDescription")[sequence];
+
+        var findingRisk = document.getElementsByName("findingRisk")[sequence];
+
+        var findingEvidence = document.getElementsByName("findingEvidence")[sequence];
+
+        var findingTableBody = document.getElementsByName("findingTableBody")[sequence];
+
+        var findingRecommendation = document.getElementsByName("findingRecommendation")[sequence];
+
+        findingNumber.appendChild(document.createTextNode(" " + "#" + sequence));
+
+        var nameAttribute = getVirtualAttribute("Name", instanceAttributes, categoryAttributes);
+
+        var instanceAttribute = getAttribute("Instance", instanceAttributes);
+
+        if (instanceAttribute != "")
+        {
+            if (nameAttribute != "")
+                nameAttribute += " - ";
+
+            nameAttribute += instanceAttribute;
+        }
+
+        findingName.innerText = nameAttribute;
+
+        var statusAttribute = getVirtualAttribute("Status", instanceAttributes, categoryAttributes);
+        findingStatus.innerText = statusAttribute;
+
+        setStatusColor(findingStatus, statusAttribute);
+
+        setStatusState(findingStatus, statusAttribute);
+
+        var severityAttribute = getVirtualAttribute("Severity", instanceAttributes, categoryAttributes);
+        findingSeverity.innerText = severityAttribute;
+
+        setSeverityColor(findingSeverity, severityAttribute);
+
+        var exploitabilityAttribute = getVirtualAttribute("Exploitability", instanceAttributes, categoryAttributes);
+        findingExploitability.innerText = exploitabilityAttribute;
+
+        setExploitabilityColor(findingExploitability, exploitabilityAttribute);
+
+        var targetAttribute = getVirtualAttribute("Target", instanceAttributes, categoryAttributes);
+        findingTarget.innerHTML = DOMPurify.sanitize(targetAttribute);
+
+        var descriptionAttribute = getVirtualAttribute("Finding", instanceAttributes, categoryAttributes);
+        findingDescription.innerHTML = DOMPurify.sanitize(descriptionAttribute);
+
+        var riskAttribute = getVirtualAttribute("Risk", instanceAttributes, categoryAttributes);
+        findingRisk.innerHTML = DOMPurify.sanitize(riskAttribute);
+
+        var evidenceAttribute = getVirtualAttribute("Evidence", instanceAttributes, categoryAttributes);
+        findingEvidence.innerHTML = DOMPurify.sanitize(evidenceAttribute);
+
+        var tableBody = findingTableBody;
+
+        for (var i=0; i<notesNode.length; i++)
+        {
+            var noteNode = notesNode[i];
+
+            var row = tableBody.appendChild(document.createElement("tr"));
+
+            var cell = row.appendChild(document.createElement("td"));
+            cell.appendChild(document.createTextNode(notesNode.length != 1 ? noteNode.sequence + "." : ""));
+
+            var html = ((noteNode.name.startsWith("<") && noteNode.name.endsWith(">")) || (noteNode.description.startsWith("<") && noteNode.description.endsWith(">")));
+
+            var text = noteNode.name;
+
+            if (noteNode.description != "")
+            {
+                if (text != "")
+                    text += " - ";
+
+                text += noteNode.description;
+            }
+
+            var cell = row.appendChild(document.createElement("td"));
+            if (html)
+                cell.innerHTML = DOMPurify.sanitize(text);
+            else
+                cell.appendChild(document.createTextNode(text));
+
+            var tableRow = row;
+
+            var tableCell = cell;
+
+            findingData(noteNode.id, tableBody, tableRow, tableCell);
+        }
+
+        var recommendationAttribute = getVirtualAttribute("Recommendation", instanceAttributes, categoryAttributes);
+        findingRecommendation.innerHTML = DOMPurify.sanitize(recommendationAttribute);
+    }
+
+    function findingData(id, tableBody, tableRow, tableCell)
+    {
+        ProjectService.getNotesData(id, false, true, function(data) {
+            findingDataProcess(data, tableBody, tableRow, tableCell);
+        });
+    }
+
+    function findingDataProcess(notesData, tableBody, tableRow, tableCell)
+    {
+        for (var i=0; i<notesData.length; i++)
+        {
+            var noteData = notesData[i];
+
+            var row = tableRow;
+
+            var cell = tableCell;
+
+            if (i != 0)
+            {
+                row = document.createElement("tr");
+
+                tableBody.insertBefore(row, tableRow.nextSibling);
+
+                cell = row.appendChild(document.createElement("td"));
+                cell.appendChild(document.createTextNode(""));
+
+                cell = row.appendChild(document.createElement("td"));
+
+                tableRow = row;
+
+                tableCell = cell;
+            }
+
+            if (i == 0)
+            {
+                cell.appendChild(document.createElement("br"));
+            }
+
+            var html = ((noteData.name.startsWith("<") && noteData.name.endsWith(">")) || (noteData.description.startsWith("<") && noteData.description.endsWith(">")));
+
+            if (noteData.image != null)
+            {
+                cell.appendChild(document.createElement("br"));
+
+                var image = document.createElement("img");
+                if (html)
+                {
+                    image.style.border = "5px solid #282C34";
+                }
+                image.setAttribute("class", "img-fluid");
+                image.setAttribute("src", noteData.image);
+                cell.appendChild(image);
+            }
+
+            var text = noteData.name;
+
+            if (noteData.description != "")
+            {
+                if (text != "")
+                    text += " - ";
+
+                text += noteData.description;
+            }
+
+            cell.appendChild(document.createElement("br"));
+
+            if (html)
+            {
+                var div = document.createElement("div");
+                div.style.border = "5px solid #282C34";
+                div.style.background = "#282C34";
+                div.style.color = "#ABB2BF";
+                div.innerHTML = DOMPurify.sanitize(text);
+                cell.appendChild(div);
+            }
+            else
+                cell.appendChild(document.createTextNode(text));
+
+            if (i == notesData.length-1)
+            {
+                cell.appendChild(document.createElement("br"));
+            }
+        }
+    }
+
+    function observations()
+    {
+        ProjectService.getNotesByName("Observations", "#", function(data) {
+            observationsProcess(data);
+        });
+    }
+
+    var categoryMapObservations = null;
+    var instanceMapObservations = null;
+
+    function observationsProcess(notes)
+    {
+        var tableBody = document.createElement("tbody");
+        tableBody.id = "observationsTableBody";
+
+        var size = chart3.data.datasets[0].data.length;
+
+        for (var i=0; i<size; i++)
+        {
+           chart3.data.datasets[0].data[i] = 0;
+        }
+
+        categoryMapObservations = {};
+        instanceMapObservations = {};
+
+        var sequence = 0;
+
+        var categoriesAttributes = {};
+
+        var observationReference = observationTemplate;
+
+        for (var i=0; i<notes.length; i++)
+        {
+            var note = notes[i];
+
+            var id = note.id;
+
+            var name = note.name;
+
+            var description = note.description;
+
+            if (name.startsWith("Observations" + "#"))
+            {
+                var start = ("Observations" + "#").length;
+
+                var index = name.indexOf("-");
+
+                if (index == -1)
+                {
+                    var type = name.substring(start, name.length);
+
+                    var categoryAttributes = getAttributes(description);
+
+                    categoriesAttributes[type] = categoryAttributes;
+                }
+                else
+                {
+                    var type = name.substring(start, index);
+
+                    var categoryAttributes = categoriesAttributes[type];
+
+                    var instanceAttributes = getAttributes(description);
+
+                    var idx = 0;
+
+                    chart3.data.datasets[0].data[idx] = chart3.data.datasets[0].data[idx] + 1;
+
+                    categoryMapObservations[id] = categoryAttributes;
+                    instanceMapObservations[id] = instanceAttributes;
+
+                    sequence = sequence + 1;
+
+                    var start = ("Observations" + "#" + type + "-").length;
+
+                    var instance = name.substring(start, name.length);
+
+                    var row = tableBody.appendChild(document.createElement("tr"));
+
+                    var cell = row.appendChild(document.createElement("td"));
+                    var anchor = document.createElement("a");
+                    anchor.setAttribute("href", "#" + "observation" + sequence);
+                    anchor.appendChild(document.createTextNode(sequence + "."));
+                    cell.appendChild(anchor);
+
+                    var nameAttribute = getVirtualAttribute("Name", instanceAttributes, categoryAttributes);
+
+                    var instanceAttribute = getAttribute("Instance", instanceAttributes);
+
+                    if (instanceAttribute != "")
+                    {
+                        if (nameAttribute != "")
+                            nameAttribute += " - ";
+
+                        nameAttribute += instanceAttribute;
+                    }
+
+                    if (nameAttribute == "")
+                    {
+                        nameAttribute = "Instance" + " " + type + "-" + instance;
+                    }
+
+                    var cell = row.appendChild(document.createElement("td"));
+                    cell.appendChild(document.createTextNode(nameAttribute));
+
+                    var observationInstance = observationTemplate.cloneNode(true);
+
+                    observationInstance.id = "observation" + sequence;
+
+                    observationInstance.style.pageBreakBefore = "always";
+
+                    observationReference.parentNode.insertBefore(observationInstance, observationReference.nextSibling);
+
+                    observationReference = observationInstance;
+
+                    observation(sequence, id);
+                }
+            }
+        }
+
+        chart3.update();
+
+        observationsTableBody.parentNode.replaceChild(tableBody, observationsTableBody);
+
+        observationTemplate.style.display = "none";
+    }
+
+    function observation(sequence, id)
+    {
+        var categoryAttributes = categoryMapObservations[id];
+        var instanceAttributes = instanceMapObservations[id];
+
+        ProjectService.getNotesNode(id, function(data) {
+            observationProcess(data, categoryAttributes, instanceAttributes, sequence);
+        });
+    }
+
+    function observationProcess(notesNode, categoryAttributes, instanceAttributes, sequence)
+    {
+        var observationNumber = document.getElementsByName("observationNumber")[sequence];
+
+        var observationName = document.getElementsByName("observationName")[sequence];
+
+        var observationDescription = document.getElementsByName("observationDescription")[sequence];
+
+        var observationTableBody = document.getElementsByName("observationTableBody")[sequence];
+
+        observationNumber.appendChild(document.createTextNode(" " + "#" + sequence));
+
+        var nameAttribute = getVirtualAttribute("Name", instanceAttributes, categoryAttributes);
+
+        var instanceAttribute = getAttribute("Instance", instanceAttributes);
+
+        if (instanceAttribute != "")
+        {
+            if (nameAttribute != "")
+                nameAttribute += " - ";
+
+            nameAttribute += instanceAttribute;
+        }
+
+        observationName.innerText = nameAttribute;
+
+        var descriptionAttribute = getVirtualAttribute("Observation", instanceAttributes, categoryAttributes);
+        observationDescription.innerHTML = DOMPurify.sanitize(descriptionAttribute);
+
+        var tableBody = observationTableBody;
+
+        for (var i=0; i<notesNode.length; i++)
+        {
+            var noteNode = notesNode[i];
+
+            var row = tableBody.appendChild(document.createElement("tr"));
+
+            var cell = row.appendChild(document.createElement("td"));
+            cell.appendChild(document.createTextNode(notesNode.length != 1 ? noteNode.sequence + "." : ""));
+
+            var html = ((noteNode.name.startsWith("<") && noteNode.name.endsWith(">")) || (noteNode.description.startsWith("<") && noteNode.description.endsWith(">")));
+
+            var text = noteNode.name;
+
+            if (noteNode.description != "")
+            {
+                if (text != "")
+                    text += " - ";
+
+                text += noteNode.description;
+            }
+
+            var cell = row.appendChild(document.createElement("td"));
+            if (html)
+                cell.innerHTML = DOMPurify.sanitize(text);
+            else
+                cell.appendChild(document.createTextNode(text));
+
+            var tableRow = row;
+
+            var tableCell = cell;
+
+            observationData(noteNode.id, tableBody, tableRow, tableCell);
+        }
+    }
+
+    function observationData(id, tableBody, tableRow, tableCell)
+    {
+        ProjectService.getNotesData(id, false, true, function(data) {
+            observationDataProcess(data, tableBody, tableRow, tableCell);
+        });
+    }
+
+    function observationDataProcess(notesData, tableBody, tableRow, tableCell)
+    {
+        for (var i=0; i<notesData.length; i++)
+        {
+            var noteData = notesData[i];
+
+            var row = tableRow;
+
+            var cell = tableCell;
+
+            if (i != 0)
+            {
+                row = document.createElement("tr");
+
+                tableBody.insertBefore(row, tableRow.nextSibling);
+
+                cell = row.appendChild(document.createElement("td"));
+                cell.appendChild(document.createTextNode(""));
+
+                cell = row.appendChild(document.createElement("td"));
+
+                tableRow = row;
+
+                tableCell = cell;
+            }
+
+            if (i == 0)
+            {
+                cell.appendChild(document.createElement("br"));
+            }
+
+            var html = ((noteData.name.startsWith("<") && noteData.name.endsWith(">")) || (noteData.description.startsWith("<") && noteData.description.endsWith(">")));
+
+            if (noteData.image != null)
+            {
+                cell.appendChild(document.createElement("br"));
+
+                var image = document.createElement("img");
+                if (html)
+                {
+                    image.style.border = "5px solid #282C34";
+                }
+                image.setAttribute("class", "img-fluid");
+                image.setAttribute("src", noteData.image);
+                cell.appendChild(image);
+            }
+
+            var text = noteData.name;
+
+            if (noteData.description != "")
+            {
+                if (text != "")
+                    text += " - ";
+
+                text += noteData.description;
+            }
+
+            cell.appendChild(document.createElement("br"));
+
+            if (html)
+            {
+                var div = document.createElement("div");
+                div.style.border = "5px solid #282C34";
+                div.style.background = "#282C34";
+                div.style.color = "#ABB2BF";
+                div.innerHTML = DOMPurify.sanitize(text);
+                cell.appendChild(div);
+            }
+            else
+                cell.appendChild(document.createTextNode(text));
+
+            if (i == notesData.length-1)
+            {
+                cell.appendChild(document.createElement("br"));
+            }
+        }
+    }
+    </script>
+  </body>
+</html>

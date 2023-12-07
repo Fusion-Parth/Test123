@@ -1,1 +1,2 @@
 \b(?:SELECT|INSERT|UPDATE|DELETE|DROP|UNION|ALTER|EXEC(?:UTE)?|sp_executesql)\b
+\b(?:EXEC(?:UTE)?|sp_executesql)\s*\([^)]*\+\s*[^)]*\)

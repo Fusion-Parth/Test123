@@ -1,0 +1,25 @@
+https://apps.powerapps.com/play/e/4b9fa9b8-62e7-ebca-88b2-c108a44c4146/a/f7b17752-b76c-4276-9508-d0af08586fea?tenantId=bfd32ece-0900-4f00-a1c2-9e59cdf1a4dd&hint=c44ab186-44ff-4d3f-9b1c-29781cc4190f&sourcetime=1701329136175&source=portal&hidenavbar=true
+
+https://mwuatrtf.cbd.dev/exp-remittance-services-api/Services/Remittance/RemitAdd
+
+PowerApps	Maker	ptest03	SSO
+PowerApps	Maker	ptest04	SSO
+PowerApps	Checker	itgrc2	SSO
+EPH	View Only	VIEWONLY1	VIEWONLY1@123
+
+
+
+Application URL - PowerApps: https://apps.powerapps.com/play/e/4b9fa9b8-62e7-ebca-88b2-c108a44c4146/a/f7b17752-b76c-4276-9508-d0af08586fea?tenantId=bfd32ece-0900-4f00-a1c2-9e59cdf1a4dd&hint=c44ab186-44ff-4d3f-9b1c-29781cc4190f&sourcetime=1701329136175&source=portal&hidenavbar=true
+
+EPH: https://web-preprod-eph.cbd.dev/VolPayHubUI/#/login?
+
+1.	RemitAdd - https://mwuatrtf.cbd.dev/exp-remittance-services-api/Services/Remittance/RemitAdd
+
+2.	BankSearch –  https://mwuatrtf.cbd.dev/exp-operational-services-api/Interface/BankDetailsSearch
+
+
+3.	AccountInquiry - https://mwuatrtf.cbd.dev/exp-customer-profile-api/Services/CustomerProfile/PartyAcctRelInq
+
+
+Note:
+All are MW existing APIs

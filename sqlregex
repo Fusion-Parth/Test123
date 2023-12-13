@@ -10,3 +10,5 @@
 }
 
 "scaer"><!ENTITY xeecodoi1 "&xeecodoi0;&xeecodoi0;"><!ENTITY xeecodoi2 "&xeecodoi1;&xeecodoi1;"><!ENTITY xeecodoi3 "&xeecodoi2;&xeecodoi2;">]>
+{
+  "xml": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<!DOCTYPE root [\n  <!ENTITY lol \"lol\">\n  <!ENTITY lol2 \"&lol;&lol;&lol;&lol;&lol;&lol;&lol;&lol;&lol;&lol;\">\n  <!ENTITY lol3 \"&lol2;&lol2;&lol2;&lol2;&lol2;&lol2;&lol
